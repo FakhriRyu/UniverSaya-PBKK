@@ -14,11 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home', [
+        "title" => "Home"
+    ]);
 });
 
-Route::get('/user/{name}', function ($name) {
-    return view('user', [
-        "namah" => "$name"
+Route::get('/Kelas', function () {
+    return view('Kelas', [
+        "title" => "Kelas"
+    ]);
+});
+
+Route::get('/Kalender', function () {
+    return view('Kalender', [
+        "title" => "Kalender"
+    ]);
+});
+
+Route::get('/Notes', function () {
+    return view('Notes', [
+        "title" => "Catatan"
     ]);
 });
