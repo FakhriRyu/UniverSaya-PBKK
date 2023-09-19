@@ -7,10 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{ ($title === "Home") ? 'active' : '' }} " href="/">Beranda</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{ ($title === "Kelas") ? 'active' : '' }} " href="/Kelas">Kelas</a>
+            <a class="nav-link {{ ($title === "Kelas") ? 'active' : '' }} " href="/">Kelas</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ ($title === "Kalender") ? 'active' : '' }} " href="/Kalender">Kalender</a>
