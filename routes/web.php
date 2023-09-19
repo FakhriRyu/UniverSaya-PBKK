@@ -14,12 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', [
-        "title" => "Home"
-    ]);
-});
-
-Route::get('/Kelas', function () {
     return view('Kelas', [
         "title" => "Kelas"
     ]);
@@ -34,5 +28,11 @@ Route::get('/Kalender', function () {
 Route::get('/Notes', function () {
     return view('Notes', [
         "title" => "Catatan"
+    ]);
+});
+
+Route::get('/NewNotes', function () {
+    return view('NewNotes', [
+        "title" => "Catatan Baru"
     ]);
 });
