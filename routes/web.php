@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KelasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Kelas', [
-        "title" => "Kelas"
-    ]);
-});
+Route::get('/', [KelasController::class, "index"]); // Mengarahkan ke URL utama
+
+Route::get('/create', [KelasController::class, 'create']); // Mengarahkan ke halaman pembuatan entri baru
+
+Route::get('/kelas', [KelasController::class, 'index'])->name('kelas.index'); // Mengarahkan ke tampilan daftar mata kuliah
+
+Route::post('/kelas', [KelasController::class, 'store'])->name('kelas.store'); // Menyimpan data baru
+
+Route::get('/kelas/{kelas}/edit', [KelasController::class, 'edit'])->name('kelas.edit'); // Mengarahkan ke halaman pengeditan
+
+Route::post('/kelas/{kelas}', [KelasController::class, 'update'])->name('kelas.update'); // Menyimpan pembaruan data
+Route::put('/kelas/{kelas}', [KelasController::class, 'update']); // Alternatif untuk menyimpan pembaruan data
+
+Route::delete('/kelas/{kelas}', [KelasController::class, 'destroy'])->name('kelas.destroy'); // Menghapus data
+
+Route::get('/kelas/{kelas}', [KelasController::class, 'show'])->name('kelas.show'); // Mengarahkan ke tampilan detail mata kuliah
+
 
 Route::get('/Kalender', function () {
     return view('Kalender', [

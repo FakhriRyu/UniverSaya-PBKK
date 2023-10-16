@@ -2,55 +2,25 @@
 
 @section('container')
 <h1 class="mb-4">Mata Kuliah</h1>
+<a href="/create" class="btn btn-primary mb-3">Tambah</a>
+
 <div class="d-flex flex-wrap">
-    <div class="card m-2" style="width: 18rem;">
-        <img class="card-img-top equal-image" src="images/PBKK.gif" alt="Pemrograman Berbasis Kerangka Kerja">
-        <div class="card-body">
-            <h5 class="card-title">Proyek PBKK</h5>
-            <p class="card-text">Tidak Ada Tugas</p>
-            <a href="#" class="btn btn-primary">Lihat</a>
-        </div>
-    </div>
-    <div class="card m-2" style="width: 18rem;">
-        <img class="card-img-top equal-image" src="images/metnumb.gif" alt="Metode Numerik">
-        <div class="card-body">
-            <h5 class="card-title">Metode Numerik</h5>
-            <p class="card-text">Tidak Ada Tugas</p>
-            <a href="#" class="btn btn-primary">Lihat</a>
-        </div>
-    </div>
-    <div class="card m-2" style="width: 18rem;">
-        <img class="card-img-top equal-image" src="images/ST.gif" alt="Metode Numerik">
-        <div class="card-body">
-            <h5 class="card-title">Sistem Terdistribusi</h5>
-            <p class="card-text">Tidak Ada Tugas</p>
-            <a href="#" class="btn btn-primary">Lihat</a>
-        </div>
-    </div>
-    <div class="card m-2" style="width: 18rem;">
-        <img class="card-img-top equal-image" src="images/ML.gif" alt="Metode Numerik">
-        <div class="card-body">
-            <h5 class="card-title">Mesin Pembelajar</h5>
-            <p class="card-text">Tidak Ada Tugas</p>
-            <a href="#" class="btn btn-primary">Lihat</a>
-        </div>
-    </div>
-    <div class="card m-2" style="width: 18rem;">
-        <img class="card-img-top equal-image" src="images/ET.gif" alt="Metode Numerik">
-        <div class="card-body">
-            <h5 class="card-title">Etika Profesi</h5>
-            <p class="card-text">Tidak Ada Tugas</p>
-            <a href="#" class="btn btn-primary">Lihat</a>
-        </div>
-    </div>
-    <div class="card m-2" style="width: 18rem;">
-        <img class="card-img-top equal-image" src="images/RO.gif" alt="Metode Numerik">
-        <div class="card-body">
-            <h5 class="card-title">Riset Operasi</h5>
-            <p class="card-text">Tidak Ada Tugas</p>
-            <a href="#" class="btn btn-primary">Lihat</a>
-        </div>
-    </div>
+        @foreach($kelas as $kelas)
+                <div class="card m-2" style="width: 18rem;">
+                    <img class="card-img-top equal-image" src="{{ asset('storage/' . $kelas->image) }}" alt="{{ $kelas->matkul }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $kelas->matkul }}</h5>
+                        <p class="card-text">{{ $kelas->status }}</p>
+                        <a href="{{ route('kelas.show', $kelas) }}" class="btn btn-primary">Lihat</a>
+                        <a href="{{ route('kelas.edit', $kelas) }}" class="btn btn-warning">Edit</a>
+                        <form action="{{ route('kelas.destroy', $kelas) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
+                    </div>
+                </div>
+        @endforeach
 </div>
 
 <style>
