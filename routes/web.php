@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\NoteController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::get('/kelas', [KelasController::class, 'index'])->name('kelas.index'); //
 
 Route::post('/kelas', [KelasController::class, 'store'])->name('kelas.store'); // Menyimpan data baru
 
+
 Route::get('/kelas/{kelas}/edit', [KelasController::class, 'edit'])->name('kelas.edit'); // Mengarahkan ke halaman pengeditan
 
 Route::post('/kelas/{kelas}', [KelasController::class, 'update'])->name('kelas.update'); // Menyimpan pembaruan data
@@ -32,20 +34,22 @@ Route::delete('/kelas/{kelas}', [KelasController::class, 'destroy'])->name('kela
 Route::get('/kelas/{kelas}', [KelasController::class, 'show'])->name('kelas.show'); // Mengarahkan ke tampilan detail mata kuliah
 
 
+// routes/web.php
+
+Route::get('/notes', [NoteController::class, 'index']);
+Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
+Route::get('/notes/create', [NoteController::class, 'create'])->name('notes.create');
+Route::post('/notes', [NoteController::class, 'store'])->name('notes.store'); 
+Route::get('/notes/{note}', [NoteController::class, 'show'])->name('notes.show');
+Route::get('/notes/{note}/edit', [NoteController::class, 'edit'])->name('notes.edit');
+Route::put('/notes/{note}', [NoteController::class, 'update'])->name('notes.update');
+Route::delete('/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
+
+
+
+
 Route::get('/Kalender', function () {
     return view('Kalender', [
         "title" => "Kalender"
-    ]);
-});
-
-Route::get('/Notes', function () {
-    return view('Notes', [
-        "title" => "Catatan"
-    ]);
-});
-
-Route::get('/NewNotes', function () {
-    return view('NewNotes', [
-        "title" => "Catatan Baru"
     ]);
 });

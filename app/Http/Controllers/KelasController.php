@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelas;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response; // Impor kelas Response
 
 class KelasController extends Controller
 {
@@ -13,13 +14,14 @@ class KelasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-{
-    $kelas = Kelas::all(); // Mengambil semua data kelas dari database
+    {
+        $kelas = Kelas::all(); // Mengambil semua data kelas dari database
 
-    return view('kelas', [
-        'title' => 'Kelas',
-        'kelas' => $kelas, // Meneruskan data kelas ke tampilan
-    ]);
+        // Mengembalikan tampilan sebagai respons
+        return view('kelas', [
+            'title' => 'Mata kuliah',
+            'kelas' => $kelas, // Meneruskan data kelas ke tampilan
+        ]);
 }
 
 
@@ -68,10 +70,12 @@ class KelasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Kelas $kelas)
-{
-    $title = 'Detail Mata Kuliah - ' . $kelas->matkul; // Inisialisasi variabel $title
-    return view('kelas.show', compact('kelas', 'title'));
-}
+    {
+        $title = 'Detail Mata Kuliah - ' . $kelas->matkul; // Inisialisasi variabel $title
+
+        // Mengembalikan tampilan sebagai respons
+        return view('kelas.show', compact('kelas', 'title'));
+    }
 
 
 
@@ -84,7 +88,7 @@ class KelasController extends Controller
     public function edit(Kelas $kelas)
 {
     $title = 'Edit Kelas - ' . $kelas->matkul; // Inisialisasi variabel $title
-    return view('edit', compact('kelas', 'title'));
+    return view('.kelas.edit', compact('kelas', 'title'));
 }
 
 
