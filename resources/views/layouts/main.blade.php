@@ -10,7 +10,8 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
 
-    <title>UniverSaya | {{ $title }}</title>
+    <title>UniverSaya</title>
+    <link rel="icon" href="{{ asset('images/game.png') }}" type="image/png">
   </head>
   <body>
     
