@@ -9,8 +9,14 @@
 <h2>Catatan</h2>
 <ul>
     @foreach ($kelas->notes as $note)
-        <li>{{ $note->judul }} - {{ $note->isi }}</li>
+        <li><b>{{ $note->judul }}</b> <br> {{ $note->isi }}</li> <br>
     @endforeach
 </ul>
 </div>
+
+<style>
+    li {
+        text-align: justify;
+    }
+</style>
 @endsection

@@ -14,14 +14,15 @@
             <label for="isi" class="form-label">Isi</label>
             <textarea class="form-control" id="isi" name="isi" rows="5" required>{{ $note->isi }}</textarea>
         </div>
-        <div class="mb-3">
+        <div class="form-group">
             <label for="kelas_id" class="form-label">Mata Kuliah</label>
             <select class="form-select" id="kelas_id" name="kelas_id" required>
-                @foreach ($kelas as $kelas)
-                    <option value="{{ $kelas->id }}" @if($note->kelas_id == $kelas->id) selected @endif>{{ $kelas->matkul }}</option>
+                <option value="">Pilih Mata Kuliah</option>
+                @foreach ($kelas as $kelasItem)
+                    <option value="{{ $kelasItem->id }}">{{ $kelasItem->matkul }}</option>
                 @endforeach
-            </select>
+            </select>            
         </div>
-        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+        <button type="submit" class="btn btn-primary mt-3">Simpan Perubahan</button>
     </form>
 @endsection

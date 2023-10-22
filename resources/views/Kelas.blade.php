@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-<h1 class="mb-4">Mata Kuliah</h1>
+<h1>Kelas</h1>
 <a href="/create" class="btn btn-primary mb-3">Tambah</a>
 
 <div class="d-flex flex-wrap">
@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $kelas->matkul }}</h5>
                         <p class="card-text">{{ $kelas->status }}</p>
-                        <a href="{{ route('kelas.show', $kelas) }}" class="btn btn-primary">Lihat</a>
+                        <a href="{{ route('kelas.show', $kelas) }}" class="btn btn-info">Lihat</a>
                         <a href="{{ route('kelas.edit', $kelas) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('kelas.destroy', $kelas) }}" method="POST" class="d-inline">
                             @csrf
