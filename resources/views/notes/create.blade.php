@@ -17,18 +17,10 @@
         <div class="form-group">
             <label for="kelas_id" class="form-label">Mata Kuliah</label>
             <select class="form-select" id="kelas_id" name="kelas_id" required>
-                @if (!empty($kelas) && is_array($kelas))
-                    @if (count($kelas) > 0)
-                        @foreach ($kelas as $kelasItem)
-                            <option value="{{ $kelasItem->id }}">{{ $kelasItem->matkul }}</option>
-                        @endforeach
-                    @else
-                        <option value="">Pilih Mata Kuliah</option>
-                    @endif
-                @else
-                    <option value="">Pilih Mata Kuliah</option>
-                    <p>Tidak ada data kelas yang tersedia.</p>
-                @endif
+                <option value="">Pilih Mata Kuliah</option>
+                @foreach ($kelas as $kelasItem)
+                    <option value="{{ $kelasItem->id }}">{{ $kelasItem->matkul }}</option>
+                @endforeach
             </select>            
         </div>
 

@@ -48,15 +48,14 @@ class NoteController extends Controller
 
     }
 
-
-
-public function edit(Note $note)
-{
-    // Ambil data kelas yang diperlukan
-    $kelas = Note::all(); // Gantilah dengan metode yang sesuai untuk mengambil data kelas
+    public function edit(Note $note)
+    {
+        // Ambil seluruh data kelas
+        $kelas = Kelas::all(); // Gantilah dengan model dan nama tabel yang sesuai
     
-    return view('notes.edit', compact('note', 'kelas'));
-}
+        return view('notes.edit', compact('note', 'kelas'));
+    }
+    
 
 
     public function update(Request $request, Note $note)
